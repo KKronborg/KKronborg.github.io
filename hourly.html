@@ -25,6 +25,12 @@ nav a {
     color:#16c79a;
     text-decoration:none;
     margin-left:20px;
+    font-weight:500;
+}
+
+/* Highlight active page */
+nav a.active {
+    color:white;
 }
 
 .container {
@@ -53,16 +59,18 @@ iframe:hover, img:hover {
 <div>SF Crime Analysis</div>
 <div>
 <a href="index.html">Home</a>
+<a href="hourly.html" class="active">Hourly</a>
 <a href="map.html">Map</a>
 </div>
 </nav>
 
 <div class="container">
+
 <h1>Hourly Crime Patterns</h1>
 
 <p>Explore how crime varies throughout the day.</p>
 
-<img src="Plots/images/crime_ratio_per_district.png">
+<img src="Plots/images/crime_ratio_per_district.png" alt="Crime ratios">
 
 <iframe src="Plots/visualizations/crime_hourly_interactive.html" height="600"></iframe>
 
