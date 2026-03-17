@@ -5,23 +5,26 @@
 </head>
 
 <body style="font-family: Arial; padding: 40px;">
+
     <h1>Group 75 — Crime Analysis</h1>
 
     <p>
         This website presents an analysis of crime data in the United States
         from 2003 to 2026, focusing on key crime categories and trends.
     </p>
+
     <div style="margin-top: 20px;">
         <a href="hourly.html" style="padding: 10px 20px; background: #e17055; color: white;
            text-decoration: none; border-radius: 6px; margin-right: 10px;">
            Hourly patterns
         </a>
-    
+
         <a href="map.html" style="padding: 10px 20px; background: #0984e3; color: white;
            text-decoration: none; border-radius: 6px;">
            Crime map
         </a>
     </div>
+
     <h3>Focus Crimes</h3>
     <ul>
         <li>Robbery</li>
@@ -31,5 +34,26 @@
         <li>Disorderly Conduct</li>
         <li>Larceny Theft</li>
     </ul>
+
+    <!-- ✅ ADD THIS INSIDE BODY -->
+    <h2>Explore the Data</h2>
+
+    <p>Use the links below to explore different aspects of crime data.</p>
+
+    <ul>
+      <li>
+        <a href="hourly.html">📊 Hourly Crime Patterns</a>
+      </li>
+      <li>
+        <a href="map.html">🗺️ Crime Map</a>
+      </li>
+    </ul>
+
+    <h3>Preview: Crime Map</h3>
+
+    <iframe src="Plots/visualizations/sf_crime_heatmap.html"
+            width="100%" height="400" style="border:none;">
+    </iframe>
+
 </body>
 </html>
