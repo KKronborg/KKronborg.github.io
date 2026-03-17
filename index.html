@@ -1,59 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Group 75 - Crime Analysis</title>
+    <meta charset="UTF-8">
+    <title>SF Crime Analysis</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a2e;
+            color: #eaeaea;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 40px;
+            background: #111;
+        }
+
+        nav a {
+            color: #16c79a;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            max-width: 700px;
+            margin: auto;
+            color: #ccc;
+        }
+
+        /* STORY SECTION */
+        .story {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            background: #22223b;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            background: #2a2a4a;
+        }
+
+        .card h3 {
+            color: #16c79a;
+        }
+
+        /* IFRAME PREVIEW */
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        iframe:hover {
+            transform: scale(1.01);
+        }
+    </style>
 </head>
 
-<body style="font-family: Arial; padding: 40px;">
+<body>
 
-    <h1>Group 75 — Crime Analysis</h1>
-
-    <p>
-        This website presents an analysis of crime data in the United States
-        from 2003 to 2026, focusing on key crime categories and trends.
-    </p>
-
-    <div style="margin-top: 20px;">
-        <a href="hourly.html" style="padding: 10px 20px; background: #e17055; color: white;
-           text-decoration: none; border-radius: 6px; margin-right: 10px;">
-           Hourly patterns
-        </a>
-
-        <a href="map.html" style="padding: 10px 20px; background: #0984e3; color: white;
-           text-decoration: none; border-radius: 6px;">
-           Crime map
-        </a>
+<!-- NAVBAR -->
+<nav>
+    <div>SF Crime Analysis</div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="hourly.html">Hourly</a>
+        <a href="map.html">Map</a>
     </div>
+</nav>
 
-    <h3>Focus Crimes</h3>
-    <ul>
-        <li>Robbery</li>
-        <li>Motor Vehicle Theft</li>
-        <li>Weapons Offense</li>
-        <li>Rape</li>
-        <li>Disorderly Conduct</li>
-        <li>Larceny Theft</li>
-    </ul>
+<!-- HEADER -->
+<header>
+    <h1>SF Crime: Two Decades of Data</h1>
+    <p>
+        A data-driven exploration of crime patterns across time and space in San Francisco.
+    </p>
+</header>
 
-    <!-- ✅ ADD THIS INSIDE BODY -->
-    <h2>Explore the Data</h2>
+<!-- STORY -->
+<div class="story">
+    <h2>What can crime data tell us?</h2>
+    <p>
+        Crime is not random. It follows patterns in time, location, and category.
+        By combining interactive visualizations with spatial analysis, we can uncover
+        how crime evolves and where it concentrates.
+    </p>
+</div>
 
-    <p>Use the links below to explore different aspects of crime data.</p>
+<!-- CARDS -->
+<div class="cards">
 
-    <ul>
-      <li>
-        <a href="hourly.html">📊 Hourly Crime Patterns</a>
-      </li>
-      <li>
-        <a href="map.html">🗺️ Crime Map</a>
-      </li>
-    </ul>
+    <a href="hourly.html" class="card">
+        <h3>📊 Hourly Patterns</h3>
+        <p>See how crime changes throughout the day.</p>
+    </a>
 
-    <h3>Preview: Crime Map</h3>
+    <a href="map.html" class="card">
+        <h3>🗺️ Crime Map</h3>
+        <p>Explore where crime happens across the city.</p>
+    </a>
 
-    <iframe src="Plots/visualizations/sf_crime_heatmap.html"
-            width="100%" height="400" style="border:none;">
-    </iframe>
+</div>
+
+<!-- PREVIEW -->
+<div style="max-width:1000px; margin:auto; padding:40px;">
+    <h2>Preview: Crime Map</h2>
+    <iframe src="Plots/visualizations/sf_crime_heatmap.html"></iframe>
+</div>
 
 </body>
 </html>

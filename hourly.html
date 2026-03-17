@@ -1,36 +1,72 @@
-<body style="font-family: Arial; max-width: 800px; margin: auto; padding: 20px;"></body>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hourly Crime</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin:0;
+    font-family:'Inter', sans-serif;
+    background:#1a1a2e;
+    color:#eaeaea;
+}
+
+nav {
+    display:flex;
+    justify-content:space-between;
+    padding:15px 40px;
+    background:#111;
+}
+
+nav a {
+    color:#16c79a;
+    text-decoration:none;
+    margin-left:20px;
+}
+
+.container {
+    max-width:900px;
+    margin:auto;
+    padding:40px 20px;
+    text-align:center;
+}
+
+iframe, img {
+    width:100%;
+    border-radius:12px;
+    margin-top:20px;
+    transition:0.3s;
+}
+
+iframe:hover, img:hover {
+    transform:scale(1.01);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div>SF Crime Analysis</div>
+<div>
+<a href="index.html">Home</a>
+<a href="map.html">Map</a>
+</div>
+</nav>
+
+<div class="container">
 <h1>Hourly Crime Patterns</h1>
 
-<p>
-This page explores how crime patterns change over time. 
-We combine static summaries with interactive visualizations 
-to better understand trends across categories and locations.
-</p>
+<p>Explore how crime varies throughout the day.</p>
 
-<h2>Crime Distribution Across Districts</h2>
+<img src="Plots/images/crime_ratio_per_district.png">
 
-<p>
-The figure below compares crime ratios across districts for different time periods.
-</p>
+<iframe src="Plots/visualizations/crime_hourly_interactive.html" height="600"></iframe>
 
-<img src="Plots/images/crime_ratio_per_district.png" style="max-width:100%;">
+</div>
 
-<h2>Interactive Hourly Crime Patterns</h2>
-
-<p>
-Use the interactive chart below to explore how crime varies over time.
-You can hover over data points, zoom in, and toggle categories.
-</p>
-
-<iframe src="Plots/visualizations/crime_hourly_interactive.html"
-        width="100%"
-        height="600"
-        style="border:none;">
-</iframe>
-
-<p>
-<a href="Plots/visualizations/crime_hourly_interactive.html">
-    Open full screen →
-</a>
-</p>
+</body>
+</html>
