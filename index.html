@@ -8,19 +8,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
             background-color: #1a1a2e;
             color: #eaeaea;
+            transition: 0.3s;
         }
 
         /* NAVBAR */
         nav {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 15px 40px;
             background: #111;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
@@ -30,9 +39,23 @@
             font-weight: 500;
         }
 
-        /* ACTIVE LINK */
         nav a.active {
             color: white;
+        }
+
+        nav button {
+            margin-left: 20px;
+            background: none;
+            border: 1px solid #16c79a;
+            color: #16c79a;
+            padding: 5px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        nav button:hover {
+            background: #16c79a;
+            color: black;
         }
 
         /* HEADER */
@@ -52,7 +75,7 @@
             color: #ccc;
         }
 
-        /* STORY SECTION */
+        /* STORY */
         .story {
             max-width: 800px;
             margin: 60px auto;
@@ -88,7 +111,7 @@
             color: #16c79a;
         }
 
-        /* IFRAME PREVIEW */
+        /* IFRAME */
         iframe {
             width: 100%;
             height: 400px;
@@ -99,6 +122,33 @@
 
         iframe:hover {
             transform: scale(1.01);
+        }
+
+        /* LIGHT MODE */
+        .light-mode {
+            background: #ffffff;
+            color: #111;
+        }
+
+        .light-mode nav {
+            background: #eee;
+        }
+
+        .light-mode nav a {
+            color: #0077cc;
+        }
+
+        .light-mode nav a.active {
+            color: black;
+        }
+
+        .light-mode .card {
+            background: #f5f5f5;
+            color: black;
+        }
+
+        .light-mode p {
+            color: #333;
         }
     </style>
 </head>
@@ -112,6 +162,7 @@
         <a href="index.html" class="active">Home</a>
         <a href="hourly.html">Hourly</a>
         <a href="map.html">Map</a>
+        <button onclick="toggleMode()">🌙</button>
     </div>
 </nav>
 
@@ -137,12 +188,12 @@
 <div class="cards">
 
     <a href="hourly.html" class="card">
-        <h3> Hourly Patterns</h3>
+        <h3>📊 Hourly Patterns</h3>
         <p>See how crime changes throughout the day.</p>
     </a>
 
     <a href="map.html" class="card">
-        <h3> Crime Map</h3>
+        <h3>🗺️ Crime Map</h3>
         <p>Explore where crime happens across the city.</p>
     </a>
 
@@ -153,6 +204,13 @@
     <h2>Preview: Crime Map</h2>
     <iframe src="Plots/visualizations/sf_crime_heatmap.html"></iframe>
 </div>
+
+<!-- SCRIPT -->
+<script>
+function toggleMode() {
+    document.body.classList.toggle("light-mode");
+}
+</script>
 
 </body>
 </html>

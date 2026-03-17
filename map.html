@@ -12,13 +12,19 @@ body {
     font-family:'Inter', sans-serif;
     background:#1a1a2e;
     color:#eaeaea;
+    transition: 0.3s;
 }
 
+/* NAVBAR */
 nav {
     display:flex;
     justify-content:space-between;
+    align-items: center;
     padding:15px 40px;
     background:#111;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
@@ -28,11 +34,26 @@ nav a {
     font-weight:500;
 }
 
-/* Highlight active page */
 nav a.active {
     color:white;
 }
 
+nav button {
+    margin-left:20px;
+    background:none;
+    border:1px solid #16c79a;
+    color:#16c79a;
+    padding:5px 10px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+nav button:hover {
+    background:#16c79a;
+    color:black;
+}
+
+/* CONTENT */
 .container {
     max-width:900px;
     margin:auto;
@@ -49,20 +70,45 @@ iframe {
 iframe:hover {
     transform:scale(1.01);
 }
+
+/* LIGHT MODE */
+.light-mode {
+    background:#ffffff;
+    color:#111;
+}
+
+.light-mode nav {
+    background:#eee;
+}
+
+.light-mode nav a {
+    color:#0077cc;
+}
+
+.light-mode nav a.active {
+    color:black;
+}
+
+.light-mode .container {
+    color:#111;
+}
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav>
 <div>SF Crime Analysis</div>
 <div>
 <a href="index.html">Home</a>
 <a href="hourly.html">Hourly</a>
 <a href="map.html" class="active">Map</a>
+<button onclick="toggleMode()">🌙</button>
 </div>
 </nav>
 
+<!-- CONTENT -->
 <div class="container">
 
 <h1>Crime Heatmap</h1>
@@ -72,6 +118,13 @@ iframe:hover {
 <iframe src="Plots/visualizations/sf_crime_heatmap.html" height="600"></iframe>
 
 </div>
+
+<!-- SCRIPT -->
+<script>
+function toggleMode() {
+    document.body.classList.toggle("light-mode");
+}
+</script>
 
 </body>
 </html>
