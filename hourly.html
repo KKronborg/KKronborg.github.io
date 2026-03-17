@@ -1,133 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Hourly Crime</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-body {
-    margin:0;
-    font-family:'Inter', sans-serif;
-    background:#1a1a2e;
-    color:#eaeaea;
-    transition: 0.3s;
-}
-
-/* NAVBAR */
-nav {
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
-    padding:15px 40px;
-    background:#111;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav a {
-    color:#16c79a;
-    text-decoration:none;
-    margin-left:20px;
-    font-weight:500;
-}
-
-nav a.active {
-    color:white;
-}
-
-nav button {
-    margin-left:20px;
-    background:none;
-    border:1px solid #16c79a;
-    color:#16c79a;
-    padding:5px 10px;
-    border-radius:6px;
-    cursor:pointer;
-}
-
-nav button:hover {
-    background:#16c79a;
-    color:black;
-}
-
-/* CONTENT */
-.container {
-    max-width:900px;
-    margin:auto;
-    padding:40px 20px;
-    text-align:center;
-}
-
-iframe, img {
-    width:100%;
-    border-radius:12px;
-    margin-top:20px;
-    transition:0.3s;
-}
-
-iframe:hover, img:hover {
-    transform:scale(1.01);
-}
-
-/* LIGHT MODE */
-.light-mode {
-    background:#ffffff;
-    color:#111;
-}
-
-.light-mode nav {
-    background:#eee;
-}
-
-.light-mode nav a {
-    color:#0077cc;
-}
-
-.light-mode nav a.active {
-    color:black;
-}
-
-.light-mode .container {
-    color:#111;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hourly Crime Patterns</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <div class="site-shell">
+        <header class="topbar">
+            <nav class="nav" aria-label="Primary">
+                <a class="brand" href="index.html">
+                    <span class="brand-mark">SF</span>
+                    <span>Crime Atlas</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="hourly.html" class="active">Hourly</a>
+                    <a href="map.html">Map</a>
+                    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Light Mode</button>
+                </div>
+            </nav>
+        </header>
 
-<!-- NAVBAR -->
-<nav>
-<div>SF Crime Analysis</div>
-<div>
-<a href="index.html">Home</a>
-<a href="hourly.html" class="active">Hourly</a>
-<a href="map.html">Map</a>
-<button onclick="toggleMode()">🌙</button>
-</div>
-</nav>
+        <main>
+            <section class="page-hero" data-reveal>
+                <div>
+                    <div class="hero-kicker">Temporal View</div>
+                    <h1>How crime moves through the hours of the day.</h1>
+                    <p>
+                        This page combines a district-level image and an interactive chart so you can compare broad
+                        patterns with a closer look at hourly movement across the city.
+                    </p>
+                </div>
+                <div class="page-pillars">
+                    <span>Daily cycles</span>
+                    <span>District comparison</span>
+                    <span>Interactive exploration</span>
+                </div>
+            </section>
 
-<!-- CONTENT -->
-<div class="container">
+            <section class="section">
+                <div class="embed-card" data-reveal>
+                    <div class="embed-copy">
+                        <span class="eyebrow">Static Summary</span>
+                        <h3>District-level ratios create a quick overview of daily variation.</h3>
+                        <p>
+                            This visual gives you a fast read on how districts differ, making it easier to spot which
+                            parts of the city experience stronger or weaker concentration at different hours.
+                        </p>
+                    </div>
+                    <div class="embed-frame">
+                        <img class="frame-image" src="Plots/images/crime_ratio_per_district.png" alt="Crime ratio per district">
+                    </div>
+                </div>
+            </section>
 
-<h1>Hourly Crime Patterns</h1>
+            <section class="section">
+                <div class="preview-card" data-reveal>
+                    <div class="preview-copy">
+                        <span class="eyebrow">Interactive Timeline</span>
+                        <h3>Move from summary to detail with the hourly visualization.</h3>
+                        <p>
+                            The embedded chart gives a more dynamic view of how crime shifts over the day. Use it to
+                            compare peaks, quieter periods, and overall shape across time.
+                        </p>
+                    </div>
+                    <div class="preview-frame">
+                        <iframe src="Plots/visualizations/crime_hourly_interactive.html" title="Interactive hourly crime chart" height="640"></iframe>
+                    </div>
+                </div>
+            </section>
 
-<p>Explore how crime varies throughout the day.</p>
+            <section class="section">
+                <div class="insight-grid">
+                    <div class="insight-card" data-reveal>
+                        <span class="meta">Pattern Logic</span>
+                        <h3>Some hours carry more weight</h3>
+                        <p>
+                            A time-based view surfaces peaks and troughs that can disappear when data is only summarized
+                            at daily or monthly levels.
+                        </p>
+                    </div>
+                    <div class="insight-card" data-reveal>
+                        <span class="meta">Best Used Together</span>
+                        <h3>Combine with the map for a stronger story</h3>
+                        <p>
+                            Once you know when crime intensifies, the map helps answer the companion question of where
+                            those patterns are grounded in the city.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-<img src="Plots/images/crime_ratio_per_district.png" alt="Crime ratios">
+            <section class="section">
+                <div class="callout" data-reveal>
+                    <span class="eyebrow">Next Step</span>
+                    <h3>Ready to connect the timing with geography?</h3>
+                    <p>
+                        Jump to the heatmap to compare the daily rhythm with the city’s spatial hotspots.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button" href="map.html">Explore the Heatmap</a>
+                        <a class="button-secondary" href="index.html">Back to Overview</a>
+                    </div>
+                </div>
+            </section>
+        </main>
 
-<iframe src="Plots/visualizations/crime_hourly_interactive.html" height="600"></iframe>
+        <footer class="footer">
+            <div class="footer-inner">
+                <p>Temporal exploration for the San Francisco crime dataset.</p>
+                <p>Designed to make daily patterns legible at a glance.</p>
+            </div>
+        </footer>
+    </div>
 
-</div>
-
-<!-- SCRIPT -->
-<script>
-function toggleMode() {
-    document.body.classList.toggle("light-mode");
-}
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,216 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SF Crime Analysis</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: #1a1a2e;
-            color: #eaeaea;
-            transition: 0.3s;
-        }
-
-        /* NAVBAR */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            background: #111;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: #16c79a;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-        }
-
-        nav a.active {
-            color: white;
-        }
-
-        nav button {
-            margin-left: 20px;
-            background: none;
-            border: 1px solid #16c79a;
-            color: #16c79a;
-            padding: 5px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        nav button:hover {
-            background: #16c79a;
-            color: black;
-        }
-
-        /* HEADER */
-        header {
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        p {
-            max-width: 700px;
-            margin: auto;
-            color: #ccc;
-        }
-
-        /* STORY */
-        .story {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        /* CARDS */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 40px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .card {
-            background: #22223b;
-            padding: 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: white;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            background: #2a2a4a;
-        }
-
-        .card h3 {
-            color: #16c79a;
-        }
-
-        /* IFRAME */
-        iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-            border-radius: 12px;
-            transition: 0.3s;
-        }
-
-        iframe:hover {
-            transform: scale(1.01);
-        }
-
-        /* LIGHT MODE */
-        .light-mode {
-            background: #ffffff;
-            color: #111;
-        }
-
-        .light-mode nav {
-            background: #eee;
-        }
-
-        .light-mode nav a {
-            color: #0077cc;
-        }
-
-        .light-mode nav a.active {
-            color: black;
-        }
-
-        .light-mode .card {
-            background: #f5f5f5;
-            color: black;
-        }
-
-        .light-mode p {
-            color: #333;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <div class="site-shell">
+        <header class="topbar">
+            <nav class="nav" aria-label="Primary">
+                <a class="brand" href="index.html">
+                    <span class="brand-mark">SF</span>
+                    <span>Crime Atlas</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="hourly.html">Hourly</a>
+                    <a href="map.html">Map</a>
+                    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Light Mode</button>
+                </div>
+            </nav>
+        </header>
 
-<!-- NAVBAR -->
-<nav>
-    <div>SF Crime Analysis</div>
-    <div>
-        <a href="index.html" class="active">Home</a>
-        <a href="hourly.html">Hourly</a>
-        <a href="map.html">Map</a>
-        <button onclick="toggleMode()">🌙</button>
+        <main>
+            <section class="hero">
+                <div class="hero-copy" data-reveal>
+                    <span class="eyebrow">San Francisco Crime Storytelling</span>
+                    <h1>Two decades of crime patterns, designed to be explored.</h1>
+                    <p>
+                        This project turns raw incident data into a cinematic, interactive experience.
+                        Follow how crime shifts through the day, clusters across neighborhoods, and
+                        reveals rhythms that static tables would never show.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button" href="map.html">Explore the Map</a>
+                        <a class="button-secondary" href="hourly.html">See Hourly Patterns</a>
+                    </div>
+                    <div class="hero-metrics">
+                        <div class="stat-card">
+                            <div class="stat-value">24H</div>
+                            <div class="stat-label">Hourly rhythm analysis</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">20Y</div>
+                            <div class="stat-label">Long-range trend perspective</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">2 Views</div>
+                            <div class="stat-label">Time and geography in dialogue</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-panel" data-reveal>
+                    <div class="viz-orbit">
+                        <div class="grid-lines"></div>
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring"></div>
+                        <div class="data-node"></div>
+                        <div class="data-node"></div>
+                        <div class="data-node"></div>
+                        <div class="data-node"></div>
+                        <div class="overlay-card top">
+                            <strong>Spatial intensity</strong>
+                            <span>Heatmap layers surface where incidents cluster most densely across the city.</span>
+                        </div>
+                        <div class="overlay-card bottom">
+                            <strong>Temporal flow</strong>
+                            <span>Hourly views make peaks, lulls, and district-level patterns easier to compare.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-head" data-reveal>
+                    <div>
+                        <span class="eyebrow">Narrative Entry Points</span>
+                        <h2>Choose the lens that fits your question.</h2>
+                    </div>
+                    <p class="section-intro">
+                        Start with citywide geography or zoom into the daily cycle of crime behavior.
+                    </p>
+                </div>
+                <div class="feature-grid">
+                    <a class="feature-card" href="map.html" data-reveal>
+                        <span class="meta">Spatial Analysis</span>
+                        <h3>Crime Heatmap</h3>
+                        <p>
+                            Scan San Francisco as a living surface. The map highlights hotspots and gives
+                            immediate geographic context to concentration patterns.
+                        </p>
+                    </a>
+                    <a class="feature-card" href="hourly.html" data-reveal>
+                        <span class="meta">Temporal Analysis</span>
+                        <h3>Hourly Patterns</h3>
+                        <p>
+                            Compare how activity changes across the day and how those shifts differ by district,
+                            with both a static ratio view and an interactive timeline.
+                        </p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="preview-card" data-reveal>
+                    <div class="preview-copy">
+                        <span class="eyebrow">Live Preview</span>
+                        <h3>See the citywide concentration map before you dive in.</h3>
+                        <p>
+                            The embedded map gives a direct first impression of where crime incidents are most
+                            concentrated. It sets the stage for a deeper exploration into why those hotspots appear.
+                        </p>
+                        <a class="button" href="map.html">Open Full Map Experience</a>
+                    </div>
+                    <div class="preview-frame">
+                        <iframe src="Plots/visualizations/sf_crime_heatmap.html" title="San Francisco crime heatmap preview"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-card" data-reveal>
+                    <div class="section-head">
+                        <div>
+                            <span class="eyebrow">Why It Matters</span>
+                            <h2>Crime data becomes more useful when time and place are seen together.</h2>
+                        </div>
+                    </div>
+                    <div class="insight-grid">
+                        <div class="insight-card">
+                            <span class="meta">Pattern Recognition</span>
+                            <h3>Not random, but rhythmic</h3>
+                            <p>
+                                Incidents ebb and flow throughout the day, revealing repeatable patterns that can
+                                support more informed analysis and discussion.
+                            </p>
+                        </div>
+                        <div class="insight-card">
+                            <span class="meta">Urban Geography</span>
+                            <h3>Hotspots tell a spatial story</h3>
+                            <p>
+                                Concentrations are not evenly distributed. Mapping the data clarifies how different
+                                parts of the city carry different forms of intensity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-inner">
+                <p>SF Crime Atlas is a visual storytelling layer for your San Francisco crime analysis project.</p>
+                <p>Built for immersive exploration across time and space.</p>
+            </div>
+        </footer>
     </div>
-</nav>
 
-<!-- HEADER -->
-<header>
-    <h1>SF Crime: Two Decades of Data</h1>
-    <p>
-        A data-driven exploration of crime patterns across time and space in San Francisco.
-    </p>
-</header>
-
-<!-- STORY -->
-<div class="story">
-    <h2>What can crime data tell us?</h2>
-    <p>
-        Crime is not random. It follows patterns in time, location, and category.
-        By combining interactive visualizations with spatial analysis, we can uncover
-        how crime evolves and where it concentrates.
-    </p>
-</div>
-
-<!-- CARDS -->
-<div class="cards">
-
-    <a href="hourly.html" class="card">
-        <h3>📊 Hourly Patterns</h3>
-        <p>See how crime changes throughout the day.</p>
-    </a>
-
-    <a href="map.html" class="card">
-        <h3>🗺️ Crime Map</h3>
-        <p>Explore where crime happens across the city.</p>
-    </a>
-
-</div>
-
-<!-- PREVIEW -->
-<div style="max-width:1000px; margin:auto; padding:40px;">
-    <h2>Preview: Crime Map</h2>
-    <iframe src="Plots/visualizations/sf_crime_heatmap.html"></iframe>
-</div>
-
-<!-- SCRIPT -->
-<script>
-function toggleMode() {
-    document.body.classList.toggle("light-mode");
-}
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
