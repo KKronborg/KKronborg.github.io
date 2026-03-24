@@ -29,12 +29,12 @@
         <main>
             <section class="hero">
                 <div class="hero-copy" data-reveal>
-                    <span class="eyebrow">San Francisco Crime Storytelling</span>
-                    <h1>Two decades of crime patterns, designed to be explored.</h1>
+                    <span class="eyebrow">San Francisco Crime Analysis</span>
+                    <h1>Two decades of crime patterns across time and place.</h1>
                     <p>
-                        This project turns raw incident data into a polished, interactive experience.
-                        Follow how crime shifts through the day, clusters across neighborhoods, and
-                        reveals patterns that static tables would never show.
+                        This project presents San Francisco crime data through linked temporal and spatial views.
+                        It shows how incidents change over the course of a day, where concentrations appear,
+                        and how those patterns vary across the city.
                     </p>
                     <div class="hero-actions">
                         <a class="button" href="map.html">Explore the Map</a>
@@ -79,9 +79,9 @@
             </section>
 
             <section class="section">
-                <div class="section-head" data-reveal>
+                    <div class="section-head" data-reveal>
                     <div>
-                        <span class="eyebrow">Narrative Entry Points</span>
+                        <span class="eyebrow">Analysis Views</span>
                         <h2>Choose the lens that fits your question.</h2>
                     </div>
                     <p class="section-intro">
@@ -93,16 +93,15 @@
                         <span class="meta">Spatial Analysis</span>
                         <h3>Crime Heatmap</h3>
                         <p>
-                            Scan San Francisco as a living surface. The map highlights hotspots and gives
-                            immediate geographic context to concentration patterns.
+                            Review the geographic distribution of incidents across San Francisco and identify
+                            where crime is most concentrated.
                         </p>
                     </a>
                     <a class="feature-card" href="hourly.html" data-reveal>
                         <span class="meta">Temporal Analysis</span>
                         <h3>Hourly Patterns</h3>
                         <p>
-                            Compare how activity changes across the day and how those shifts differ by district,
-                            with both a static ratio view and an interactive timeline.
+                            Compare how incident levels change by hour and how those shifts differ across districts.
                         </p>
                     </a>
                 </div>
@@ -111,13 +110,13 @@
             <section class="section">
                 <div class="preview-card" data-reveal>
                     <div class="preview-copy">
-                        <span class="eyebrow">Live Preview</span>
-                        <h3>See the citywide concentration map before you dive in.</h3>
+                        <span class="eyebrow">Map Preview</span>
+                        <h3>Review the citywide concentration map.</h3>
                         <p>
-                            The embedded map gives a direct first impression of where crime incidents are most
+                            The embedded map provides an immediate overview of where crime incidents are most
                             concentrated across the city.
                         </p>
-                        <a class="button" href="map.html">Open Full Map Experience</a>
+                        <a class="button" href="map.html">Open Full Map View</a>
                     </div>
                     <div class="preview-frame">
                         <iframe src="Plots/visualizations/sf_crime_heatmap.html" title="San Francisco crime heatmap preview"></iframe>
@@ -136,18 +135,18 @@
                     <div class="insight-grid">
                         <div class="insight-card">
                             <span class="meta">Pattern Recognition</span>
-                            <h3>Not random, but rhythmic</h3>
+                            <h3>Incident levels follow observable patterns</h3>
                             <p>
-                                Incidents ebb and flow throughout the day, revealing repeatable patterns that can
-                                support more informed analysis and discussion.
+                                Crime levels rise and fall through the day, revealing recurring structures that are
+                                easier to identify in a time-based view.
                             </p>
                         </div>
                         <div class="insight-card">
                             <span class="meta">Urban Geography</span>
-                            <h3>Hotspots tell a spatial story</h3>
+                            <h3>Hotspots reveal spatial concentration</h3>
                             <p>
-                                Concentrations are not evenly distributed. Mapping the data clarifies how different
-                                parts of the city carry different forms of intensity.
+                                Incidents are not evenly distributed across the city. Mapping the data clarifies
+                                which areas carry higher concentrations.
                             </p>
                         </div>
                     </div>
@@ -157,8 +156,8 @@
 
         <footer class="footer">
             <div class="footer-inner">
-                <p>SF Crime Atlas is a visual storytelling layer for your San Francisco crime analysis project.</p>
-                <p>Built for immersive exploration across time and space.</p>
+                <p>SF Crime Atlas presents temporal and spatial views of the San Francisco crime dataset.</p>
+                <p>Built to support clear comparison across time and geography.</p>
             </div>
         </footer>
     </div>
